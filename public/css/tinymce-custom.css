@@ -1,0 +1,113 @@
+/* TinyMCE Custom Styles */
+.tox-tinymce {
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.tox .tox-toolbar {
+  background: #f8f9fa !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  padding: 8px 12px !important;
+}
+
+.tox .tox-toolbar__group {
+  padding: 0 4px !important;
+}
+
+.tox .tox-tbtn {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  margin: 0 2px !important;
+  transition: all 0.2s ease !important;
+}
+
+.tox .tox-tbtn:hover {
+  background: #e0e7ff !important;
+  border-color: #4f46e5 !important;
+  transform: translateY(-1px) !important;
+}
+
+.tox .tox-tbtn--enabled {
+  background: #4f46e5 !important;
+  color: #fff !important;
+  border-color: #4f46e5 !important;
+}
+
+.tox .tox-tbtn--enabled:hover {
+  background: #3730a3 !important;
+  border-color: #3730a3 !important;
+}
+
+.tox .tox-edit-area {
+  border: none !important;
+}
+
+.tox .tox-edit-area__iframe {
+  background: #fff !important;
+}
+
+.tox .tox-editor-container {
+  border-radius: 8px !important;
+}
+
+/* Custom button for math formulas */
+.tox .tox-tbtn[aria-label="Chèn công thức toán học"] {
+  background: #10b981 !important;
+  color: #fff !important;
+  border-color: #10b981 !important;
+  font-weight: bold !important;
+}
+
+.tox .tox-tbtn[aria-label="Chèn công thức toán học"]:hover {
+  background: #059669 !important;
+  border-color: #059669 !important;
+}
+
+/* Content styling inside editor */
+.tox .tox-edit-area iframe {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+/* Math formula styling */
+.math {
+  font-family: 'Times New Roman', serif !important;
+  font-size: 16px !important;
+  margin: 4px 0 !important;
+}
+
+/* WIRIS Math plugin styling */
+.tox .tox-wiris {
+  background: #f0f9ff !important;
+  border: 1px solid #0ea5e9 !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+}
+
+/* Font Awesome icons in toolbar */
+.tox .tox-tbtn i {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tox .tox-toolbar {
+    padding: 6px 8px !important;
+  }
+  
+  .tox .tox-tbtn {
+    margin: 0 1px !important;
+    padding: 4px 6px !important;
+  }
+  
+  .tox .tox-toolbar__group {
+    padding: 0 2px !important;
+  }
+}
+
+/* Ensure Font Awesome loads properly */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');

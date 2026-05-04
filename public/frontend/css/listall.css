@@ -1,0 +1,846 @@
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #06b6d4;
+    --light-color: #f8fafc;
+    --dark-color: #1e293b;
+    --border-color: #e2e8f0;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 8px;
+    --spacing-lg: 1rem;
+    --spacing-xl: 2rem;
+}
+
+.smart-exam-listing {
+    background: var(--light-color);
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Compact Header */
+.smart-header {
+    background: #fff;
+    padding: 5px0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+.breadcrumb-smart {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.875rem;
+    margin: 0;
+    padding: 0;
+    background: none;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-smart a {
+    color: #000000;
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.breadcrumb-smart a:hover {
+    background: var(--light-color);
+    text-decoration: none;
+}
+
+.breadcrumb-smart .separator {
+    color: var(--secondary-color);
+    font-weight: 400;
+}
+
+.current-path {
+    /* background: var(--primary-color); */
+    color: #a31616;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Compact Quick Actions with Scroll */
+.quick-actions {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    position: relative;
+    margin-top: var(--spacing-lg);
+}
+
+.quick-actions-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    position: relative;
+}
+
+.quick-actions-title .count-badge {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 2px var(--spacing-xs);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: var(--spacing-xs);
+}
+
+.actions-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-sm);
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: var(--spacing-xs);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.actions-grid::-webkit-scrollbar {
+    width: 4px;
+}
+
+.actions-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.actions-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.actions-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
+}
+
+/* Scroll indicators */
+.scroll-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.scroll-indicator:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.scroll-indicator.left {
+    left: -16px;
+}
+
+.scroll-indicator.right {
+    right: -16px;
+}
+
+.scroll-indicator.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Show more/less toggle */
+.show-more-toggle {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.show-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.show-more-btn:hover {
+    background: var(--light-color);
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-sm);
+    background: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    color: var(--dark-color);
+    transition: var(--transition);
+    font-size: 0.875rem;
+}
+
+.action-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.action-btn.active {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.action-icon {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.action-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Compact Exam Type Groups */
+.exam-type-group {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.exam-type-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: #fff;
+    padding: var(--spacing-md) var(--spacing-lg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.exam-type-header:hover {
+    background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+}
+
+.exam-type-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.exam-type-title i {
+    font-size: 1.25rem;
+}
+
+.exam-type-count {
+    background: rgba(255,255,255,0.2);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.exam-type-toggle {
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.exam-type-toggle.collapsed {
+    transform: rotate(180deg);
+}
+
+.exam-type-body {
+    padding: var(--spacing-lg);
+    background: var(--light-color);
+}
+
+/* Ultra Compact Exam Items - 3 Parts Layout */
+.exam-item-smart {
+    display: flex;
+    align-items: stretch;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-sm);
+    background: #fff;
+    transition: var(--transition);
+    position: relative;
+    min-height: 60px; /* Fixed minimum height */
+    align-items: center;
+}
+
+.exam-item-smart:hover {
+    box-shadow: var(--box-shadow-lg);
+    transform: translateY(-1px);
+    border-color: var(--primary-color);
+}
+
+.exam-item-smart::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--success-color);
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+}
+
+/* Part 1: Icon/Image */
+.exam-icon-smart {
+    width: 45px;
+    height: 45px;
+    background: var(--success-color);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: var(--spacing-sm);
+}
+
+.exam-icon-smart i {
+    color: #fff;
+    font-size: 26px;
+}
+
+/* Part 2: Content Info */
+.exam-content-smart {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: space-between;
+}
+
+.exam-title-smart {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 2px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.exam-title-smart .badge {
+    font-size: 0.5rem;
+    padding: 1px var(--spacing-xs);
+    border-radius: 9999px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.badge-warning {
+    background: linear-gradient(135deg, var(--warning-color), #f97316);
+    color: #fff;
+}
+
+.badge-success {
+    background: linear-gradient(135deg, var(--success-color), #059669);
+    color: #fff;
+}
+
+/* Compact Meta Info */
+.exam-meta-smart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    font-size: 13px;
+    color: var(--secondary-color);
+    margin-bottom: 2px;
+}
+
+.exam-meta-item-smart {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.exam-meta-item-smart i {
+    font-size: 0.625rem;
+    color: var(--primary-color);
+}
+
+/* Compact Teacher Info */
+.exam-teacher-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.625rem;
+}
+
+.exam-teacher-avatar {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.exam-teacher-name {
+    font-size: 0.625rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.exam-teacher-role {
+    font-size: 0.5rem;
+    color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+/* Part 3: Button */
+.exam-button-smart {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 15px;
+    height: fit-content;
+    align-self: center;
+}
+
+.exam-button-smart:hover {
+    background: var(--primary-hover);
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.02);
+}
+
+.exam-button-smart[style*="background: #ffc107"]:hover {
+    background: #f59e0b !important;
+}
+
+.text-danger {
+    color: var(--danger-color) !important;
+}
+
+.font-weight-bold {
+    font-weight: 700;
+}
+
+/* Compact Load More Button */
+.btn-load-more {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: #fff;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.btn-load-more:hover {
+    background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.btn-load-more:active {
+    transform: translateY(0);
+}
+
+.btn-load-more i {
+    transition: var(--transition);
+}
+
+.btn-load-more:hover i {
+    transform: translateY(1px);
+}
+
+.btn-load-more.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Empty State */
+.no-exam-type {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    color: var(--secondary-color);
+}
+
+.no-exam-type i {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .quick-actions {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .actions-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xs);
+        max-height: 150px;
+    }
+
+    .action-btn {
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+
+    .action-icon {
+        font-size: 1rem;
+        margin-bottom: 2px;
+    }
+
+    .action-label {
+        font-size: 0.625rem;
+    }
+
+    .scroll-indicator {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+
+    .scroll-indicator.left {
+        left: -14px;
+    }
+
+    .scroll-indicator.right {
+        right: -14px;
+    }
+
+    /* Mobile Exam Item Optimization - Keep Compact Layout */
+    .exam-item-smart {
+        padding: var(--spacing-xs);
+        min-height: 50px;
+    }
+
+    .exam-icon-smart {
+        width: 35px;
+        height: 35px;
+        margin-right: var(--spacing-xs);
+    }
+
+    .exam-icon-smart i {
+        font-size: 0.75rem;
+    }
+
+    .exam-title-smart {
+        font-size: 0.625rem;
+        margin-bottom: 1px;
+    }
+
+    .exam-title-smart .badge {
+        font-size: 0.5rem;
+        padding: 1px var(--spacing-xs);
+    }
+
+    .exam-meta-smart {
+        font-size: 0.5rem;
+        gap: var(--spacing-xs);
+        margin-bottom: 1px;
+    }
+
+    .exam-meta-item-smart i {
+        font-size: 0.5rem;
+    }
+
+    .exam-teacher-info {
+        font-size: 0.5rem;
+    }
+
+    .exam-teacher-avatar {
+        width: 12px;
+        height: 12px;
+    }
+
+    .exam-teacher-name {
+        font-size: 0.5rem;
+    }
+
+    .exam-teacher-role {
+        font-size: 0.5rem;
+    }
+
+    .exam-button-smart {
+        padding: var(--spacing-xs);
+        font-size: 0.5rem;
+    }
+
+    .exam-type-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .exam-type-title {
+        font-size: 1rem;
+    }
+
+    .exam-type-count {
+        font-size: 0.625rem;
+        padding: 2px var(--spacing-xs);
+    }
+
+    .exam-type-body {
+        padding: var(--spacing-md);
+    }
+
+    .breadcrumb-smart {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: 120px;
+    }
+
+    .scroll-indicator {
+        width: 24px;
+        height: 24px;
+        font-size: 0.625rem;
+    }
+
+    .scroll-indicator.left {
+        left: -12px;
+    }
+
+    .scroll-indicator.right {
+        right: -12px;
+    }
+
+    /* Extra Small Mobile Optimization - Ultra Compact */
+    .exam-item-smart {
+        padding: 4px;
+        min-height: 45px;
+    }
+
+    .exam-icon-smart {
+        width: 35px;
+        height: 35px;
+        margin-right: 6px;
+    }
+
+    .exam-icon-smart i {
+        font-size: 22px;
+    }
+
+    .exam-title-smart {
+        font-size: 0.5rem;
+        margin-bottom: 1px;
+    }
+
+    .exam-title-smart .badge {
+        font-size: 0.5rem;
+        padding: 1px 4px;
+    }
+
+    .exam-meta-smart {
+        font-size: 0.5rem;
+        gap: 4px;
+        margin-bottom: 1px;
+    }
+
+    .exam-meta-item-smart i {
+        font-size: 0.5rem;
+    }
+
+    .exam-teacher-info {
+        font-size: 0.5rem;
+    }
+
+    .exam-teacher-avatar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .exam-teacher-name {
+        font-size: 0.5rem;
+    }
+
+    .exam-teacher-role {
+        font-size: 0.5rem;
+    }
+
+    .exam-button-smart {
+        padding: 4px 6px;
+        font-size: 0.5rem;
+    }
+
+    .exam-type-title {
+        font-size: 0.875rem;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+
+    .exam-title-smart {
+        font-size: 15px;
+    }
+
+    .exam-meta-smart {
+        font-size: 0.625rem;
+    }
+
+    .exam-button-smart {
+        font-size: 13px;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+/* Loading Animation */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Smooth Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.exam-item-smart {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+    .exam-item-smart {
+        /* Touch target minimum 44px */
+        min-height: 44px;
+        /* Better touch feedback */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+        /* Prevent text selection on touch */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        align-items: center;
+    }
+
+    .exam-button-smart {
+        /* Touch target minimum 44px */
+        min-height: 32px;
+        min-width: 44px;
+        /* Better touch feedback */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .action-btn {
+        /* Touch target minimum 44px */
+        min-height: 44px;
+        /* Better touch feedback */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Improve scrolling on iOS */
+    .actions-grid {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Better focus states for accessibility */
+    .exam-item-smart:focus,
+    .exam-button-smart:focus,
+    .action-btn:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+}
