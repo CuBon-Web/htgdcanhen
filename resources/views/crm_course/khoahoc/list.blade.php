@@ -127,7 +127,7 @@
 @section('js_crm_course')
 @endsection
 @section('content_crm_course')
-<main class="main-content-wrap">
+<main class="main-content-wrap"> aaa
     <div class="content">
     <div class="blog-post-area ptb-100">
         <div class="container-fluid">
