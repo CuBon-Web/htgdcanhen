@@ -244,6 +244,7 @@
 
               <el-button size="small" @click="addInput('species')">Thêm giá trị</el-button>
             </div>
+            <review-seeding v-model="objData.hang_muc" />
             <div class="form-group">
               <label>Giá thực bán (Miễn phí nếu bỏ trống)</label>
               <vs-input type="number" size="default" class="w-100" v-model="objData.price" />
@@ -273,6 +274,7 @@ import TinyMce from "../_common/tinymce";
 import ImageMulti from "../_common/upload_image_multi";
 import "tinymce/icons/default/icons.min.js";
 import InputTag from "vue-input-tag";
+import ReviewSeeding from "./ReviewSeeding";
 export default {
   name: "product",
   data() {
@@ -358,7 +360,7 @@ export default {
         ],
         origin: "",
         thickness: "",
-        hang_muc: "",
+        hang_muc: [],
         service_id: 0,
         lungtung: [],
         status_variant: 0,
@@ -370,6 +372,7 @@ export default {
     TinyMce,
     ImageMulti,
     InputTag,
+    ReviewSeeding,
   },
   computed: {},
   watch: {

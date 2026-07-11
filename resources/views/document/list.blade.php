@@ -123,7 +123,7 @@
                                                         @endif
                                                     </div>
                                                     <div class="courses-two__client-content">
-                                                        <h4>{{ $taiLieu->customer ? $taiLieu->customer->name : 'Edu Alpha' }}
+                                                        <h4>{{ $taiLieu->customer ? $taiLieu->customer->name : 'Cánh Én' }}
                                                         </h4>
                                                         <p> Giáo viên</p>
                                                     </div>

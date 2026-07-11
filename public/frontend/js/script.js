@@ -386,13 +386,13 @@
           items: 2,
         },
         992: {
-          items: 2,
+          items: 3,
         },
         1200: {
-          items: 3,
+          items: 4,
         },
         1320: {
-          items: 3,
+          items: 4,
         },
       },
     });

@@ -1,6 +1,6 @@
 @extends('layouts.main.master')
 @section('title')
-    {{ $detail->name }} | Đội ngũ giáo viên tại Edu Alpha
+    {{ $detail->name }} | Đội ngũ giáo viên tại Cánh Én
 @endsection
 @section('description')
     Là những giáo viên giỏi kiến thức và giỏi truyền đạt. Rất tận tâm với học viên, đi dạy vì cái tâm và luôn khát khao cải
@@ -61,7 +61,7 @@
                         <div class="team-details__name-and-ratting-box">
                             <div class="team-details__name-box">
                                 <h3 class="team-details__name">{{ $detail->name }}</h3>
-                                <p class="team-details__sub-title">Giáo viên tại Edu Alpha</p>
+                                <p class="team-details__sub-title">Giáo viên tại Cánh Én</p>
                             </div>
                         </div>
                         @php

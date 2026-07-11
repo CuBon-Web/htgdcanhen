@@ -115,8 +115,8 @@ Khóa Học Của Tôi
                                           <div class="author-meta">
                                              <div class="author-thumb">
                                                 <a href="{{route('couseDetail',['slug'=>$item->product->slug])}}" tabindex="0">
-                                                <img src="{{url('frontend/images/avthoang.png')}}" alt="Toán Edu Alpha">
-                                                <span class="author-title">Toán Edu Alpha</span>
+                                                <img src="{{url('frontend/images/avthoang.png')}}" alt="HTGD Cánh Én">
+                                                <span class="author-title">HTGD Cánh Én</span>
                                                 </a>
                                              </div>
                                           </div>

@@ -531,35 +531,309 @@
 .banner-two {
     position: relative;
     display: block;
-    padding: 121px 0 67px;
-    background: linear-gradient(282.57deg, #F1E4FF 0.89%, #feda7b 54.81%, #feda7b 100%);
+    padding: 0px 0 0px;
+    background: #ffffff;
     overflow: hidden;
     z-index: 1;
 }
 
-.banner-two__shape-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
-}
-
-.banner-two__shape-box {
-    position: absolute;
-    left: -130px;
-    bottom: -30px;
-    width: 342px;
-    height: 342px;
-    background: linear-gradient(180deg, rgba(104, 126, 255, 0.2) 0%, rgba(104, 126, 255, 0) 100%);
-    border-radius: 50%;
+.banner-two__layout {
+    position: relative;
+    min-height: 520px;
     display: flex;
     align-items: center;
+}
+
+.banner-two__layout > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-two__left {
+    position: relative;
+    display: block;
+    max-width: 560px;
+    padding-right: 20px;
+    padding: 110px 0;
+}
+
+.banner-two__sub-title {
+    font-size: 13px;
+    color: var(--fistudy-base);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-style: normal;
+    font-family: var(--fistudy-font);
+}
+
+.banner-two__title {
+    font-size: 50px;
+    line-height: 1.15;
+    margin-top: 0;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+}
+
+.banner-two__title span {
+    color: var(--fistudy-base);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    font-family: inherit;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.banner-two__text {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #5c5c5c;
+    max-width: 480px;
+}
+
+.banner-two__btn-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+.banner-two__btn-box .thm-btn-two.banner-two__btn-primary span {
+    background-color: var(--fistudy-base);
+}
+
+.banner-two__btn-box .thm-btn-two.banner-two__btn-primary span::before {
+    background-color: #d85f00;
+}
+
+.banner-two__btn-box .thm-btn-two.banner-two__btn-primary > i {
+    background-color: var(--fistudy-base);
+}
+
+.banner-two__btn-box .thm-btn-two.banner-two__btn-primary i::after {
+    background-color: #d85f00;
+}
+
+.banner-two__btn-outline {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    text-decoration: none;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 2px solid var(--fistudy-base);
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.banner-two__btn-outline span {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 22px 14px 26px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--fistudy-base);
+    line-height: 1;
+}
+
+.banner-two__btn-outline > i {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    width: 27px;
+    height: 27px;
+    margin-right: 6px;
+    border-radius: 50%;
+    /* background: var(--fistudy-base); */
+    color: var(--fistudy-base);
+    font-size: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--fistudy-base);
+}
+
+.banner-two__btn-outline:hover {
+    background: #fff7f0;
+    box-shadow: 0 8px 24px rgba(244, 111, 1, 0.18);
+}
+
+.banner-two__btn-outline:hover > i {
+    background: #d85f00;
+}
+
+.banner-two__success-student {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 36px;
+}
+
+.banner-two__success-student-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.banner-two__success-student-list li {
+    position: relative;
+    display: block;
+}
+
+.banner-two__success-student-list li + li {
+    margin-left: -10px;
+}
+
+.banner-two__success-student-img {
+    position: relative;
+    display: block;
+    width: 44px;
+    height: 44px;
+    max-width: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-two__success-student-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: none;
+}
+
+.banner-two__success-student-content {
+    position: relative;
+    display: block;
+    flex: 1;
+}
+
+.banner-two__success-student-text {
+    font-size: 15px;
+    line-height: 1.45;
+    color: #333;
+    margin: 0;
+}
+
+.banner-two__success-student-count {
+    color: var(--fistudy-base);
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.banner-two__success-student-content .odometer-formatting-mark {
+    display: none;
+}
+
+.banner-two__right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.banner-two__hero-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    aspect-ratio: unset;
+    max-height: none;
+    overflow: hidden;
+    border-radius: 190px 0 0 190px/ 50% 0 0 50%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.banner-two__hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.banner-two__deco-star {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: #ffc224;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    z-index: 2;
+    animation: bannerStarPulse 2.5s ease-in-out infinite;
+}
+
+.banner-two__deco-star--1 {
+    top: 12%;
+    left: -8px;
+}
+
+.banner-two__deco-star--2 {
+    bottom: 18%;
+    right: 48px;
+    animation-delay: 1.2s;
+}
+
+.banner-two__deco-swirl {
+    position: absolute;
+    top: 8%;
+    left: 18%;
+    width: 60px;
+    height: 60px;
+    border: 3px solid transparent;
+    border-top-color: #ffc224;
+    border-right-color: #ffc224;
+    border-radius: 50%;
+    transform: rotate(-30deg);
+    opacity: 0.7;
+    z-index: 2;
+}
+
+@keyframes bannerStarPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.75;
+    }
+}
+
+/* Legacy banner-two blocks kept for compatibility */
+.banner-two__shape-bg,
+.banner-two__shape-box,
+.banner-two__shape-2,
+.banner-two__shape-3,
+.banner-two__shape-4,
+.banner-two__shape-5,
+.banner-two__shape-6,
+.banner-two__shape-7,
+.banner-two__shape-8,
+.banner-two__edu-icon,
+.banner-two__book-icon,
+.banner-two__btn-and-success-student-box,
+.banner-two__content-one,
+.banner-two__content-two,
+.banner-two__course-discount,
+.banner-two__video-link {
+    display: none !important;
 }
 
 .banner-two__shape-1 {
@@ -571,212 +845,6 @@
     height: 268px;
     background: linear-gradient(180deg, rgba(104, 126, 255, 0.2) 0%, rgba(104, 126, 255, 0) 100%);
     border-radius: 50%;
-}
-
-.banner-two__shape-2 {
-    position: absolute;
-    top: 180px;
-    left: 0;
-}
-
-.banner-two__shape-2 img {
-    width: auto;
-}
-
-.banner-two__shape-3 {
-    position: absolute;
-    bottom: 70px;
-    right: 0;
-}
-
-.banner-two__shape-3 img {
-    width: auto;
-    animation: topBottom 3s ease-in-out infinite;
-}
-
-.banner-two__shape-4 {
-    position: absolute;
-    bottom: 0;
-    left: 665px;
-}
-
-.banner-two__shape-4 img {
-    width: auto;
-}
-
-.banner-two__shape-5 {
-    position: absolute;
-    top: 248px;
-    right: 375px;
-}
-
-.banner-two__shape-5 img {
-    width: auto;
-}
-
-.banner-two__shape-6 {
-    position: absolute;
-    top: 145px;
-    right: 355px;
-}
-
-.banner-two__shape-6 img {
-    width: auto;
-}
-
-.banner-two__shape-7 {
-    position: absolute;
-    bottom: 270px;
-    left: 295px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(134.15deg, rgba(247, 13, 197, 0.2115) 15.4%, rgba(247, 13, 197, 0) 100%);
-    border-radius: 50%;
-}
-
-.banner-two__shape-8 {
-    position: absolute;
-    top: 200px;
-    left: 900px;
-    width: 104px;
-    height: 104px;
-    background: linear-gradient(134.15deg, rgba(247, 13, 197, 0.099) 15.4%, rgba(247, 13, 197, 0) 73.27%);
-    border-radius: 50%;
-}
-
-.banner-two__edu-icon {
-    position: absolute;
-    top: 410px;
-    left: 110px;
-}
-
-.banner-two__edu-icon img {
-    width: auto;
-}
-
-.banner-two__book-icon {
-    position: absolute;
-    top: 235px;
-    right: 40px;
-}
-
-.banner-two__book-icon img {
-    width: auto;
-}
-
-.banner-two__left {
-    position: relative;
-    display: block;
-    margin-top: 0;
-}
-
-.banner-two__sub-title {
-    font-size: 15px;
-    color: var(--fistudy-base);
-    font-weight: 600;
-    font-style: italic;
-    line-height: 30px;
-    font-family: var(--fistudy-font-two);
-}
-
-.banner-two__title {
-    font-size: 50px;
-    line-height: 59px;
-    margin-top: 5px;
-    font-weight: 600;
-    margin-bottom: 21px;
-}
-
-.banner-two__title span {
-    background: linear-gradient(265.54deg, #FF8141 2.4%, #FF647F 96.83%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-family: var(--fistudy-font-two);
-    font-weight: 400;
-    font-style: italic;
-}
-
-.banner-two__text {
-    font-size: 15px;
-    line-height: 26px;
-}
-
-.banner-two__btn-and-success-student-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 32px;
-}
-
-.banner-two__btn-box {
-    position: relative;
-    display: block;
-}
-
-.banner-two__btn-box .thm-btn-two span {
-    background-color: var(--fistudy-base);
-}
-
-.banner-two__btn-box .thm-btn-two span::before {
-    background-color: var(--fistudy-primary);
-}
-
-.banner-two__btn-box .thm-btn-two>i {
-    background-color: var(--fistudy-base);
-}
-
-.banner-two__btn-box .thm-btn-two i::after {
-    background-color: var(--fistudy-primary);
-}
-
-.banner-two__success-student {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex: 1;
-}
-
-.banner-two__success-student-list {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.banner-two__success-student-list li {
-    position: relative;
-    display: block;
-}
-
-.banner-two__success-student-list li+li {
-    margin-left: -12px;
-}
-
-.banner-two__success-student-img {
-    position: relative;
-    display: block;
-    max-width: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.banner-two__success-student-img img {
-    width: 100%;
-    border-radius: 50%;
-    border: 1px solid var(--fistudy-bdr-color);
-}
-
-.banner-two__success-student-content {
-    position: relative;
-    display: block;
-}
-
-.banner-two__success-student-content .odometer-formatting-mark {
-    display: none;
 }
 
 .banner-two__success-student-count-box {
@@ -801,17 +869,6 @@
     font-weight: 600;
     line-height: 24px;
     font-family: var(--fistudy-font-two);
-}
-
-.banner-two__success-student-text {
-    font-size: 16px;
-    line-height: 16px;
-}
-
-.banner-two__video-link {
-    position: absolute;
-    bottom: 105px;
-    right: -50px;
 }
 
 .banner-two__video-icon-box {
@@ -899,19 +956,8 @@
     position: absolute;
 }
 
-.banner-two__right {
-    position: relative;
-    display: block;
-    margin-left: 77px;
-}
-
 .banner-two__right .row {
     --bs-gutter-x: 20px;
-}
-
-.banner-two__content-one {
-    position: relative;
-    display: block;
 }
 
 .banner-two__content-one-img {
@@ -952,14 +998,6 @@
 
 .banner-two__content-one:hover .banner-two__content-one-img img {
     transform: scale(1);
-}
-
-.banner-two__course-discount {
-    position: relative;
-    display: block;
-    background-color: var(--fistudy-white);
-    box-shadow: 0px 0px 20px rgba(190, 190, 190, 0.38);
-    border-radius: 13px;
 }
 
 .banner-two__course-discount-img {
@@ -1099,12 +1137,6 @@
 
 .banner-two__course-discount-arrow a:hover {
     background-color: var(--fistudy-primary);
-}
-
-.banner-two__content-two {
-    position: relative;
-    display: block;
-    margin-top: 116px;
 }
 
 .banner-two__content-two-img {
@@ -1255,7 +1287,7 @@
 }
 
 .banner-two__text ul li::before {
-    content: "✔";
+    content: "ÃƒÂ¢Ã…â€œÃ¢â‚¬Â";
     position: absolute;
     left: 0;
     top: 0;

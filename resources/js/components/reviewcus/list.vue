@@ -12,7 +12,7 @@
               <vs-table stripe :data="list" max-items="10" pagination>
                 <template slot="thead">
                   <vs-th>Tiêu đề</vs-th>
-                  <vs-th>Video Feedback</vs-th>
+                  <vs-th>Feedback</vs-th>
                   <vs-th>Hành động</vs-th>
                 </template>
                 <template slot-scope="{data}">

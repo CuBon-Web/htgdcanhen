@@ -1,9 +1,9 @@
 @extends('layouts.main.master')
 @section('title')
-Đăng nhập Toán Edu Alpha
+Đăng nhập Toán Cánh Én
 @endsection
 @section('description')
-Đăng nhập Toán Edu Alpha
+Đăng nhập Toán Cánh Én
 @endsection
 @section('image')
 {{url(''.$banner[0]->image)}}

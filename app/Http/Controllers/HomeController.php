@@ -29,7 +29,7 @@ class HomeController extends Controller
             ['status','=',1]
         ])->orderBy('id','DESC')->limit(3)->get(['id','title','slug','created_at','image','description']);
         $data['bannerAds'] = BannerAds::where('status',1)->get();
-        $data['khoahoc'] = Product::with('customer')->where('status',1)->orderBy('id','DESC')->get();
+        $data['khoahoc'] = Product::with(['customer', 'cate', 'typecate'])->where('status',1)->orderBy('id','DESC')->get();
         // $data['founder'] = Founder::where(['status'=>1])->get();
         $data['gioithieu'] = PageContent::where(['slug'=>'gioi-thieu','language'=>'vi'])->first(['id','title','content','image']);
         $data['partner'] = Partner::where(['status'=>1])->get();

@@ -1739,7 +1739,7 @@
 
 .course-details__right {
     display: block;
-    margin-top: -250px;
+    margin-top: 0;
 }
 
 .course-details__info-box {

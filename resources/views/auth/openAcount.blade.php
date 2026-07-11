@@ -40,7 +40,7 @@
                         <div class="banner-one__thm-and-other-btn-box">
                             <div class="banner-one__btn-box">
                                 <a href="{{ $setting->facebook }}"  class="thm-btn"><span
-                                        class="icon-angles-right"></span>Nhắn tin cho fanpage của Edu Alpha</a>
+                                        class="icon-angles-right"></span>Nhắn tin cho fanpage của Cánh Én</a>
                             </div>
                             <div class="banner-one__other-btn-box">
                                 <a href="tel:{{ $setting->phone1 }}" class="banner-one__other-btn-1"><span

@@ -47,7 +47,7 @@
                         <div class="banner-one__thm-and-other-btn-box d-flex justify-content-between">
                             <div class="banner-one__btn-box">
                                 <a href="{{ $setting->facebook }}"  class="thm-btn"><span
-                                        class="icon-angles-right"></span>Nhắn tin cho Edu Alpha </a>
+                                        class="icon-angles-right"></span>Nhắn tin cho Cánh Én </a>
                             </div>
                         </div>
 
@@ -138,7 +138,7 @@
                         <div class="about-one__btn-and-live-class">
                             <div class="about-one__btn-box">
                                 <a href="{{ $setting->facebook }}" class="about-one__btn thm-btn"><span
-                                        class="icon-angles-right"></span>Nhắn tin Edu Alpha</a>
+                                        class="icon-angles-right"></span>Nhắn tin Cánh Én</a>
                             </div>
                         </div>
                     </div>

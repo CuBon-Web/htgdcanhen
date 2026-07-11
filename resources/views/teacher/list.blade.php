@@ -1,6 +1,6 @@
 @extends('layouts.main.master')
 @section('title')
-    Đội ngũ giáo viên tại Edu Alpha
+    Đội ngũ giáo viên tại Cánh Én
 @endsection
 @section('description')
     Là những giáo viên giỏi kiến thức và giỏi truyền đạt. Rất tận tâm với học viên, đi dạy vì cái tâm và luôn khát khao cải
@@ -28,7 +28,7 @@
             <div class="page-header__inner">
                 <div class="row">
                     <div class="col-lg-8">
-                        <h2>Đội ngũ giáo viên tại Edu Alpha </h2>
+                        <h2>Đội ngũ giáo viên tại Cánh Én </h2>
                         <div class="thm-breadcrumb__box">
                             <ul class="thm-breadcrumb list-unstyled">
                                 <li><a href="{{ route('home') }}">Trang chủ</a></li>
@@ -43,7 +43,7 @@
                         <div class="banner-one__thm-and-other-btn-box d-flex align-items-center" style="gap: 10px;">
                             <div class="banner-one__btn-box">
                                 <a href="{{ $setting->facebook }}"  class="thm-btn"><span
-                                        class="icon-angles-right"></span>Nhắn tin cho Edu Alpha </a>
+                                        class="icon-angles-right"></span>Nhắn tin cho Cánh Én </a>
                             </div>
                             <div class="banner-one__other-btn-box">
                                 <a href="javascript:;" onclick="javascript:jump('section-contact-sales')"

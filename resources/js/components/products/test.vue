@@ -268,6 +268,7 @@
 
               <el-button size="small" @click="addInput('species')">Thêm giá trị</el-button>
             </div>
+            <review-seeding v-model="objData.hang_muc" />
             <div class="form-group">
               <label>Giá thực bán (Miễn phí nếu bỏ trống)</label>
               <vs-input type="number" size="default" class="w-100" v-model="objData.price" />
@@ -297,6 +298,7 @@ import TinyMce from "../_common/tinymce";
 import ImageMulti from "../_common/upload_image_multi";
 import "tinymce/icons/default/icons.min.js";
 import InputTag from "vue-input-tag";
+import ReviewSeeding from "./ReviewSeeding";
 export default {
   name: "product",
   data() {
@@ -382,7 +384,7 @@ listTests:[],
         ],
         origin: "",
         thickness: "",
-        hang_muc: "",
+        hang_muc: [],
         service_id: 0,
         lungtung: [],
         status_variant: 0,
@@ -394,6 +396,7 @@ listTests:[],
     TinyMce,
     ImageMulti,
     InputTag,
+    ReviewSeeding,
   },
   computed: {},
   watch: {
@@ -686,6 +689,25 @@ listTests:[],
         })
         .catch((error) => { });
     },
+    parseReviewSeeds(rawValue) {
+      try {
+        const reviews = rawValue ? JSON.parse(rawValue) : [];
+        if (!Array.isArray(reviews)) {
+          return [];
+        }
+        return reviews.map((item) => ({
+          star: Number(item.star) || 5,
+          name: item.name || "",
+          class_name: item.class_name || "",
+          address: item.address || "",
+          content: item.content || "",
+          avatar: item.avatar || "",
+          feedback_at: item.feedback_at || "",
+        }));
+      } catch (error) {
+        return [];
+      }
+    },
     editById() {
       this.loadings(true);
       this.editId({ id: this.$route.params.id }).then(response => {
@@ -695,6 +717,7 @@ listTests:[],
         this.objData.preserve = JSON.parse(response.data.preserve);
         this.objData.size = JSON.parse(response.data.size);
         this.objData.species = JSON.parse(response.data.species);
+        this.objData.hang_muc = this.parseReviewSeeds(response.data.hang_muc);
       }).catch(error => {
         console.log(12);
       });

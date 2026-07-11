@@ -59,6 +59,7 @@ class Product extends Model
                 $query->type_cate = $request->type_cate;
                 
                 $query->species = json_encode($request->species); // câu hỏi thường gặp
+                $query->hang_muc = json_encode($request->hang_muc ?? []); // đánh giá khách hàng
                 $query->origin = $request->origin;
                 $query->thickness = $request->thickness;
                 
@@ -90,6 +91,7 @@ class Product extends Model
             $query->type_cate = $request->type_cate;
             
             $query->species = json_encode($request->species); // câu hỏi thường gặp
+            $query->hang_muc = json_encode($request->hang_muc ?? []); // đánh giá khách hàng
             $query->origin = $request->origin;
             $query->thickness = $request->thickness;
             

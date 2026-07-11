@@ -11,30 +11,22 @@
 @endsection
 @section('content')
     <section class="page-header">
-        <div class="page-header__bg"
-            style="background-image: url({{ env('AWS_R2_URL') }}/frontend/images/page-header-bg-shape.png);">
-        </div>
-        <div class="page-header__shape-4">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/page-header-shape-4.png" alt="">
-        </div>
-        <div class="page-header__shape-5">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/page-header-shape-5.png" alt="">
-        </div>
+        <div class="page-header__bg"></div>
         <div class="container">
             <div class="page-header__inner">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h1>{{ $setting->company }}</h1>
                         <div class="thm-breadcrumb__box">
                             <ul class="thm-breadcrumb list-unstyled">
                                 <li><a href="{{ route('home') }}">Trang chủ</a></li>
-                                <li><span>//</span></li>
+                                <li><span>/</span></li>
                                 <li>Về chúng tôi</li>
                             </ul>
                         </div>
-                        <div class="desc mb-3">
-                            {{ $setting->webname }}
-                        </div>
+                        <h1>Về chúng tôi</h1>
+                        @if (!empty($setting->webname))
+                            <div class="desc">{{ $setting->webname }}</div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -148,66 +140,49 @@
         </div>
     </section>
     <section class="testimonial-two">
-        <div class="testimonial-two__shape-1">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-1.png" alt="">
-            <div class="testimonial-two__shape-icon-1">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-icon-1.png" alt=""
-                    class="zoom-fade">
-            </div>
-            <div class="testimonial-two__shape-img-2">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-img-2.jpg" alt="">
-            </div>
-            <div class="testimonial-two__shape-img-3 img-bounce">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-img-3.jpg" alt="">
-            </div>
-        </div>
-        <div class="testimonial-two__shape-2">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-2.png" alt="">
-            <div class="testimonial-two__shape-icon-2 float-bob-y">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/why-choose-two-icon-1.png" alt="">
-            </div>
-            <div class="testimonial-two__shape-img-1 zoom-fade">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-img-1.jpg" alt="">
-            </div>
-        </div>
-        <div class="testimonial-two__shape-3 float-bob-x">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-3.png" alt="">
-        </div>
-        <div class="testimonial-two__shape-4"></div>
-        <div class="testimonial-two__shape-5"></div>
         <div class="container">
-            <div class="section-title-two text-center sec-title-animation animation-style1">
-                <h2 class="section-title-two__title title-animation">
-                    Tình yêu của học viên với <br> <span>Edu Alpha</span>
-                </h2>
+            <div class="section-title-two section-title-two--with-link sec-title-animation animation-style1">
+                <div class="section-title-two__heading">
+                    <div class="section-title-two__tagline-box">
+                        <span class="section-title-two__tagline">Phụ huynh và học sinh nói gì về cánh én</span>
+                    </div>
+                    <h2 class="section-title-two__title">Những phản hồi chân thực</h2>
+                </div>
+                <a href="{{ route('diemReview') }}" class="section-view-all">
+                    Xem tất cả
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
             <div class="testimonial-two__inner">
                 <div class="testimonial-two__slider">
                     <div class="testimonial-two__main-content">
                         <div class="testimonial-two__carousel owl-carousel owl-theme">
-                            <!-- Testimonial Item 1 -->
                             @foreach ($reviewcus as $item)
-                                <div class="video-one__inner">
-                                    <div class="video-one__shape-1"></div>
-                                    <div class="video-one__shape-2 rotate-me"></div>
-                                    <div class="video-one__img-box">
-                                        <img src="{{ $item->avatar }}" alt="">
-                                        <div class="video-one__video-link">
-                                            <a href="{{ $item->content }}" class="video-popup">
-                                                <div class="video-one__video-icon">
-                                                    <span class="fa fa-play"></span>
-                                                    <i class="ripple"></i>
-                                                </div>
-                                            </a>
+                                <div class="testimonial-two__item">
+                                    <article class="testimonial-two__card">
+                                        <div class="testimonial-two__quote-icon">
+                                            <i class="fas fa-quote-left" aria-hidden="true"></i>
                                         </div>
-                                        <ul class="list-unstyled video-one__video-control">
-                                            <li><a href="#"><span class="icon-screen-share"></span></a></li>
-                                            <li><a href="#"><span class="icon-microphone"></span></a></li>
-                                            <li><a href="#"><span class="icon-phone"></span></a></li>
-                                            <li><a href="#"><span class="icon-video-slash"></span></a></li>
-                                            <li><a href="#"><span class="icon-share-from"></span></a></li>
-                                        </ul>
-                                    </div>
+                                        <p class="testimonial-two__card-text">
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($item->content ?? ''), 160) }}
+                                        </p>
+                                        <div class="testimonial-two__card-footer">
+                                            <div class="testimonial-two__person">
+                                                <div class="testimonial-two__avatar">
+                                                    <img src="{{ $item->avatar }}" alt="{{ $item->name ?? 'Học viên' }}">
+                                                </div>
+                                                <div class="testimonial-two__meta">
+                                                    <h4 class="testimonial-two__name">{{ $item->name ?? 'Học viên Cánh Én' }}</h4>
+                                                    <p class="testimonial-two__role">{{ $item->class_name ?? 'Phụ huynh học sinh lớp 5' }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-two__stars" aria-label="{{ (int) ($item->star ?? 5) }} sao">
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
                             @endforeach
                         </div>
@@ -218,7 +193,7 @@
                                 <div class="testimonial-two__thumb-item">
                                     <div class="testimonial-two__img-holder-box">
                                         <div class="testimonial-two__img-holder">
-                                            <img src="{{ $item->avatar }}" alt="">
+                                            <img src="{{ $item->avatar }}" alt="{{ $item->name ?? 'Học viên' }}">
                                         </div>
                                     </div>
                                 </div>

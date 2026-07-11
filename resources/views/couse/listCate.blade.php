@@ -48,7 +48,7 @@
                         <div class="banner-one__thm-and-other-btn-box d-flex">
                             <div class="banner-one__btn-box">
                                 <a href="{{ $setting->facebook }}"  class="thm-btn"><span
-                                        class="icon-angles-right"></span>Nhắn tin cho Edu Alpha </a>
+                                        class="icon-angles-right"></span>Nhắn tin cho Cánh Én </a>
                             </div>
                         </div>
 
@@ -163,7 +163,7 @@
                 <div class="col-xl-6 col-lg-7" style="margin: auto">
                     <div class="category-one__left">
                         <div class="section-title text-left sec-title-animation animation-style2">
-                            <h2 class="section-title__title title-animation">Edu Alpha <span> Sẽ Giúp Bạn <img
+                            <h2 class="section-title__title title-animation">Cánh Én <span> Sẽ Giúp Bạn <img
                                         src="{{ env('AWS_R2_URL') }}/frontend/images/section-title-shape-2.png"
                                         alt=""></span></h2>
                         </div>

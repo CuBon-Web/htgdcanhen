@@ -25,14 +25,12 @@
               />
             </div>
             <div class="form-group">
-              <label>Video Feedback (bỏ trống nếu không có)</label>
-              <vs-input
-                type="text"
+              <label>Nội dung feedback</label>
+              <vs-textarea
                 size="default"
-                placeholder="VD: https://www.youtube.com/watch?v=I4R78pAANHE"
-                class="w-100"
+                placeholder="Nội dung feedback"
                 v-model="objData.content"
-              />
+              ></vs-textarea>
             </div>
             <div class="form-group">
               <label>Ảnh đại diện</label>

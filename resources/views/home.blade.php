@@ -10,207 +10,949 @@
 @endsection
 @section('css')
 <link rel="stylesheet" href="/frontend/css/banner.css">
+<style>
+    .feature-cards {
+        background: #fdf8ee;
+        padding: 25px 0;
+        margin: 0;
+    }
+
+    .feature-cards .feature-cards__wrap {
+        padding: 0;
+    }
+
+    .feature-cards .feature-cards__list {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .feature-cards .feature-cards__item {
+        margin: 0;
+        padding: 18px 28px;
+        border-right: 1px solid #e6dfd3;
+    }
+
+    .feature-cards .feature-cards__item:last-child {
+        border-right: none;
+    }
+
+    .feature-cards .feature-cards__single {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-height: auto;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    .feature-cards .feature-cards__icon-wrap {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        padding: 10px;
+        background: #fff;
+        border-radius: 14px;
+        border: 1px solid #f3ece0;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .feature-cards .feature-cards__icon-wrap img {
+        /* width: 100%;
+        height: 100%; */
+        max-width: 56px;
+        max-height: 56px;
+        object-fit: contain;
+        display: block;
+    }
+
+    .feature-cards .feature-cards__content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .feature-cards .feature-cards__title {
+        margin: 0 0 4px;
+        font-size: 22px;
+        line-height: 1.2;
+        font-weight: 700;
+        color: #1f1f1f;
+    }
+
+    .feature-cards .feature-cards__desc {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.45;
+        font-weight: 400;
+        color: #5a5a5a;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        .feature-cards .feature-cards__list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .feature-cards .feature-cards__item {
+            padding: 0;
+            border: none !important;
+        }
+
+        .feature-cards .feature-cards__single {
+            height: 100%;
+            padding: 16px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid #efe6d6;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .feature-cards {
+            padding: 18px 0 22px;
+        }
+
+        .feature-cards .feature-cards__list {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .feature-cards .feature-cards__item {
+            padding: 0;
+            border: none !important;
+        }
+
+        .feature-cards .feature-cards__single {
+            gap: 14px;
+            padding: 14px 16px;
+            border-radius: 12px;
+        }
+
+        .feature-cards .feature-cards__icon-wrap {
+            width: 48px;
+            height: 48px;
+            padding: 8px;
+            border-radius: 12px;
+        }
+
+        .feature-cards .feature-cards__icon-wrap img {
+            max-width: 30px;
+            max-height: 30px;
+        }
+
+        .feature-cards .feature-cards__title {
+            font-size: 18px;
+            margin-bottom: 3px;
+        }
+
+        .feature-cards .feature-cards__desc {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #666;
+        }
+    }
+
+    @media only screen and (max-width: 400px) {
+        .feature-cards .feature-cards__single {
+            padding: 12px 14px;
+            gap: 12px;
+        }
+
+        .feature-cards .feature-cards__icon-wrap {
+            width: 44px;
+            height: 44px;
+            padding: 7px;
+        }
+
+        .feature-cards .feature-cards__icon-wrap img {
+            max-width: 28px;
+            max-height: 28px;
+        }
+
+        .feature-cards .feature-cards__title {
+            font-size: 17px;
+        }
+
+        .feature-cards .feature-cards__desc {
+            font-size: 12px;
+        }
+    }
+
+
+
+    .team-two--modern .team-two__shape-1,
+    .team-two--modern .team-two__shape-2 {
+        display: none;
+    }
+
+    .team-two--modern .team-two__carousel-wrap {
+        position: relative;
+        padding: 0 8px;
+    }
+
+    .team-two--modern .teacher-card {
+        display: flex;
+        align-items: stretch;
+        min-height: 168px;
+        background: #fff;
+        border: 1px solid #ebe8e4;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .team-two--modern .teacher-card:hover {
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .team-two--modern .teacher-card__media {
+        flex: 0 0 38%;
+        max-width: 38%;
+        background: #f9fafb;
+    }
+
+    .team-two--modern .teacher-card__media a {
+        display: block;
+        height: 100%;
+    }
+
+    .team-two--modern .teacher-card__media img {
+        width: 100%;
+        height: 100%;
+        min-height: 168px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .team-two--modern .teacher-card__body {
+        flex: 1;
+        min-width: 0;
+        padding: 16px 16px 14px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .team-two--modern .teacher-card__name {
+        margin: 0 0 8px;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .team-two--modern .teacher-card__name a {
+        color: var(--fistudy-primary, #f46f01);
+        text-decoration: none;
+    }
+
+    .team-two--modern .teacher-card__name a:hover {
+        color: #d96200;
+    }
+
+    .team-two--modern .teacher-card__line {
+        margin: 0 0 4px;
+        font-size: 13px;
+        line-height: 1.45;
+        color: #4b5563;
+    }
+
+    .team-two--modern .teacher-card__social {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 10px;
+    }
+
+    .team-two--modern .teacher-card__social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #2563eb;
+        color: #fff !important;
+        font-size: 13px;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .team-two--modern .teacher-card__social a:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+    }
+
+    .team-two--modern .team-two__carousel .owl-nav {
+        position: absolute;
+        top: 50%;
+        right: -4px;
+        left: auto;
+        transform: translateY(-50%);
+        margin: 0;
+        width: auto;
+    }
+
+    .team-two--modern .team-two__carousel .owl-nav button {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        background: var(--fistudy-primary, #f46f01) !important;
+        color: #fff !important;
+        border: none !important;
+        box-shadow: 0 4px 14px rgba(244, 111, 1, 0.35);
+        font-size: 16px !important;
+        line-height: 40px !important;
+        margin: 0 !important;
+    }
+
+    .team-two--modern .team-two__carousel .owl-nav button.owl-prev {
+        display: none !important;
+    }
+
+    .team-two--modern .team-two__carousel .owl-nav button:hover {
+        background: #d96200 !important;
+    }
+
+    .team-two--modern .team-two__more {
+        margin-top: 24px;
+    }
+
+    .team-two--modern .team-two__more .viewmore-form__btn {
+        background: #fff;
+        color: #3d2620;
+        border: 1px solid #e5e7eb;
+        padding: 10px 22px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .team-two--modern .team-two__more .viewmore-form__btn:hover {
+        background: var(--fistudy-primary, #f46f01);
+        color: #fff;
+        border-color: var(--fistudy-primary, #f46f01);
+    }
+
+    @media (max-width: 767px) {
+        .team-two--modern {
+            padding: 36px 0 44px;
+        }
+
+        .team-two--modern .teacher-card {
+            min-height: 150px;
+        }
+
+        .team-two--modern .teacher-card__media img {
+            min-height: 150px;
+        }
+
+        .team-two--modern .teacher-card__name {
+            font-size: 16px;
+        }
+
+        .team-two--modern .teacher-card__line {
+            font-size: 12px;
+        }
+    }
+
+    .home-stats {
+        padding: 0 0 56px;
+        background: #fff;
+    }
+
+    .home-stats__bar {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        background: #fef9f2;
+        border-radius: 15px;
+        padding: 28px 12px;
+    }
+
+    .home-stats__item {
+        position: relative;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 4px 20px;
+        min-width: 0;
+    }
+
+    .home-stats__item:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 58px;
+        background: #e6dfd3;
+    }
+
+    .home-stats__icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        font-size: 40px;
+        line-height: 1;
+        color: var(--fistudy-primary, #f46f01);
+    }
+
+    .home-stats__icon .fas {
+        font-size: 36px;
+    }
+
+    .home-stats__content {
+        min-width: 0;
+    }
+
+    .home-stats__number {
+        margin: 0 0 2px;
+        font-size: 32px;
+        line-height: 1.15;
+        font-weight: 700;
+        color: var(--fistudy-primary, #f46f01);
+        letter-spacing: -0.02em;
+    }
+
+    .home-stats__label {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.35;
+        font-weight: 400;
+        color: #2b2b2b;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        .home-stats__bar {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0;
+            padding: 8px 0;
+        }
+
+        .home-stats__item {
+            flex: none;
+            justify-content: flex-start;
+            padding: 20px 22px;
+        }
+
+        .home-stats__item:nth-child(odd)::after {
+            display: block;
+        }
+
+        .home-stats__item:nth-child(even)::after {
+            display: none;
+        }
+
+        .home-stats__item:nth-child(-n+2) {
+            border-bottom: 1px solid #e6dfd3;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .home-stats {
+            padding: 0 0 36px;
+        }
+
+        .home-stats__bar {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-radius: 14px;
+            padding: 6px 0;
+            gap: 0;
+        }
+
+        .home-stats__item {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 16px 14px;
+            min-height: 112px;
+        }
+
+        .home-stats__item:nth-child(odd) {
+            border-right: 1px solid #e6dfd3;
+        }
+
+        .home-stats__item:nth-child(-n+2) {
+            border-bottom: 1px solid #e6dfd3;
+        }
+
+        .home-stats__item::after {
+            display: none !important;
+        }
+
+        .home-stats__icon {
+            width: 36px;
+            height: 36px;
+            font-size: 28px;
+        }
+
+        .home-stats__icon .fas {
+            font-size: 26px;
+        }
+
+        .home-stats__number {
+            font-size: 24px;
+            margin-bottom: 2px;
+        }
+
+        .home-stats__label {
+            font-size: 12px;
+            line-height: 1.35;
+            color: #4a4a4a;
+        }
+    }
+
+    @media only screen and (max-width: 400px) {
+        .home-stats__item {
+            padding: 14px 12px;
+            min-height: 104px;
+            gap: 8px;
+        }
+
+        .home-stats__number {
+            font-size: 22px;
+        }
+
+        .home-stats__label {
+            font-size: 11px;
+        }
+    }
+
+    .testimonial-two {
+        position: relative;
+        padding: 16px 0 58px;
+        background: #fff;
+    }
+
+    .testimonial-two .container {
+        position: relative;
+    }
+
+    .testimonial-two .section-title-two {
+        margin-bottom: 30px;
+    }
+
+    .testimonial-two__shape-1,
+    .testimonial-two__shape-2,
+    .testimonial-two__shape-3,
+    .testimonial-two__shape-4,
+    .testimonial-two__shape-5 {
+        display: none !important;
+    }
+
+    .testimonial-two__inner,
+    .testimonial-two__slider,
+    .testimonial-two__main-content,
+    .testimonial-two__carousel {
+        position: relative;
+    }
+
+    .testimonial-two__carousel .owl-stage {
+        display: flex;
+    }
+
+    .testimonial-two__carousel .owl-item {
+        height: auto;
+    }
+
+    .testimonial-two__card {
+        height: 100%;
+        background: #fef9f2;
+        border: 1px solid #f1e6d8;
+        border-radius: 12px;
+        padding: 20px 20px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .testimonial-two__quote-icon {
+        font-size: 18px;
+        line-height: 1;
+        color: #f2a84a;
+    }
+
+    .testimonial-two__card-text {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.55;
+        font-weight: 500;
+        color: #4a525f;
+        min-height: 88px;
+    }
+
+    .testimonial-two__card-footer {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .testimonial-two__person {
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .testimonial-two__avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .testimonial-two__avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .testimonial-two__meta {
+        min-width: 0;
+    }
+
+    .testimonial-two__name {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 700;
+        color: #222833;
+    }
+
+    .testimonial-two__role {
+        margin: 2px 0 0;
+        font-size: 11px;
+        line-height: 1.3;
+        color: #7b8491;
+    }
+
+    .testimonial-two__stars {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        flex-shrink: 0;
+        color: #f7931a;
+        font-size: 11px;
+    }
+
+    .testimonial-two__thumb-outer-box {
+        display: none !important;
+    }
+
+    .testimonial-two .owl-nav {
+        position: absolute;
+        top: 50%;
+        left: -24px;
+        right: -24px;
+        margin: 0;
+        pointer-events: none;
+    }
+
+    .testimonial-two .owl-nav button.owl-prev,
+    .testimonial-two .owl-nav button.owl-next {
+        pointer-events: auto;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        border: 1px solid #f1dfca !important;
+        background: #fff7eb !important;
+        color: #f0a138 !important;
+        margin: 0 !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px !important;
+        box-shadow: none !important;
+    }
+
+    .testimonial-two .owl-nav button.owl-prev {
+        left: 0;
+    }
+
+    .testimonial-two .owl-nav button.owl-next {
+        right: 0;
+    }
+
+    .testimonial-two .owl-nav button.owl-prev:hover,
+    .testimonial-two .owl-nav button.owl-next:hover {
+        background: #f7a73a !important;
+        color: #fff !important;
+        border-color: #f7a73a !important;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        .testimonial-two {
+            padding-bottom: 44px;
+        }
+
+        .testimonial-two .owl-nav {
+            left: -12px;
+            right: -12px;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .testimonial-two .section-title-two {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-two__card {
+            padding: 16px;
+            border-radius: 10px;
+        }
+
+        .testimonial-two__card-text {
+            min-height: auto;
+            font-size: 13px;
+        }
+
+        .testimonial-two .owl-nav {
+            left: -4px;
+            right: -4px;
+        }
+
+        .testimonial-two .owl-nav button.owl-prev,
+        .testimonial-two .owl-nav button.owl-next {
+            width: 34px !important;
+            height: 34px !important;
+            font-size: 12px !important;
+        }
+    }
+</style>
 @endsection
 @section('js')
 @endsection
 @section('content')
     <!-- Banner Two Start -->
     <section class="banner-two">
-        <div class="banner-two__shape-bg"
-            style="background-image: url({{ env('AWS_R2_URL') }}/frontend/images/banner-two-shape-bg.png);"></div>
-        <div class="banner-two__shape-box float-bob-y">
-            <div class="banner-two__shape-1"></div>
+        <div class="banner-two__layout">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="banner-two__left">
+                        <p class="banner-two__sub-title">Hệ thống giáo dục Cánh Én</p>
+                        <h2 class="banner-two__title">{!! isset($banner[0]->title) ? $banner[0]->title : '' !!}</h2>
+                        <div class="banner-two__text">{!! isset($banner[0]->description) ? $banner[0]->description : '' !!}</div>
+                        <div class="banner-two__btn-box">
+                            <a href="#consultRegisterModal" class="thm-btn-two banner-two__btn-primary" data-bs-toggle="modal" data-bs-target="#consultRegisterModal" data-toggle="modal" data-target="#consultRegisterModal">
+                                <span>Đăng ký tư vấn miễn phí</span>
+                                <i class="icon-play"></i>
+                            </a>
+                            <a href="{{ route('couseList') }}" class="banner-two__btn-outline">
+                                <span>Xem khóa học</span>
+                                <i class="icon-play"></i>
+                            </a>
+                        </div>
+                        <div class="banner-two__success-student">
+                            <ul class="list-unstyled banner-two__success-student-list">
+                                <li>
+                                    <div class="banner-two__success-student-img">
+                                        <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-success-student-1-1.jpg" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="banner-two__success-student-img">
+                                        <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-success-student-1-2.jpg" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="banner-two__success-student-img">
+                                        <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-success-student-1-3.jpg" alt="">
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="banner-two__success-student-content">
+                                <p class="banner-two__success-student-text">
+                                    <span class="banner-two__success-student-count">
+                                        <span class="odometer" data-count="2000">00</span>+
+                                    </span>
+                                    học sinh <br> đã và đang đồng hành cùng Cánh Én
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-two__right">
+                <div class="banner-two__hero-image">
+                    <img src="{{ isset($banner[0]->image) ? $banner[0]->image : '' }}" alt="{{ $setting->company ?? 'Cánh Én' }}">
+                    <span class="banner-two__deco-star banner-two__deco-star--1" aria-hidden="true"></span>
+                    <span class="banner-two__deco-star banner-two__deco-star--2" aria-hidden="true"></span>
+                    <span class="banner-two__deco-swirl" aria-hidden="true"></span>
+                </div>
+            </div>
         </div>
-        <div class="banner-two__shape-2 img-bounce">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-shape-2.png" alt="">
-        </div>
-        <div class="banner-two__shape-3">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-shape-3.png" alt="">
-        </div>
-        <div class="banner-two__shape-4 shapemover">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-shape-4.png" alt="">
-        </div>
-        <div class="banner-two__shape-5 float-bob-y">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-shape-5.png" alt="">
-        </div>
-        <div class="banner-two__shape-6 rotate-me">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-shape-6.png" alt="">
-        </div>
-        <div class="banner-two__shape-7 float-bob-y"></div>
-        <div class="banner-two__shape-8 float-bob-x"></div>
-        <div class="banner-two__edu-icon shapemover">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-edu-icon.png" alt="">
-        </div>
-        <div class="banner-two__book-icon img-bounce">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-book-icon.png" alt="">
-        </div>
+    </section>
+    <section class="feature-cards">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="banner-two__left">
-                        <p class="banner-two__sub-title"># Về chúng tôi</p>
-                        <h2 class="banner-two__title">{!! isset($banner[0]->title) ? $banner[0]->title : '' !!}
-                        </h2>
-                        <div class="banner-two__text">{!! isset($banner[0]->description) ? $banner[0]->description : '' !!}
-                        </div>
-                        <div class="banner-two__btn-and-success-student-box">
-                            <div class="banner-two__btn-box">
-                                <a href="{{ isset($banner[0]->link) ? $banner[0]->link : '' }}" class="thm-btn-two">
-                                    <span>Thông tin chi tiết</span>
-                                    <i class="icon-angles-right"></i>
-                                </a>
+            <div class="feature-cards__wrap">
+                <ul class="list-unstyled feature-cards__list">
+                    <li class="feature-cards__item">
+                        <div class="feature-cards__single">
+                            <div class="feature-cards__icon-wrap">
+                               <img src="/frontend/images/icon1.png" alt="">
                             </div>
-                            <div class="banner-two__success-student">
-                                <ul class="list-unstyled banner-two__success-student-list">
-                                    <li>
-                                        <div class="banner-two__success-student-img">
-                                            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-success-student-1-1.jpg"
-                                                alt="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="banner-two__success-student-img">
-                                            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-success-student-1-2.jpg"
-                                                alt="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="banner-two__success-student-img">
-                                            <img src="{{ env('AWS_R2_URL') }}/frontend/images/banner-two-success-student-1-3.jpg"
-                                                alt="">
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="banner-two__success-student-content">
-                                    <div class="banner-two__success-student-count-box">
-                                        <p class="odometer" data-count="2000">00</p>
-                                        <span>+</span>
-                                    </div>
-                                    <p class="banner-two__success-student-text">Học sinh - Giáo viên</p>
-                                </div>
+                            <div class="feature-cards__content">
+                                <h3 class="feature-cards__title">Hiểu</h3>
+                                <p class="feature-cards__desc">Nắm chắc kiến thức nền tảng</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="banner-two__right">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="banner-two__content-one">
-                                    <div class="banner-two__content-one-img">
-                                        <img src="{{ isset($banner[0]->image) ? $banner[0]->image : '' }}" alt="">
-                                    </div>
-                                    <div class="banner-two__course-discount d-lg-block d-none">
-                                        <div class="banner-two__course-discount-img">
-                                            <img src="{{ isset($banner[1]->image) ? $banner[1]->image : '' }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
+                    </li>
+                    <li class="feature-cards__item">
+                        <div class="feature-cards__single">
+                            <div class="feature-cards__icon-wrap">
+                                <img src="/frontend/images/icon2.png" alt="">
                             </div>
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 ">
-                                <div class="banner-two__content-two">
-                                    <div class="banner-two__content-two-img d-lg-block d-none">
-                                        <img src="{{ isset($banner[2]->image) ? $banner[2]->image : '' }}" alt="">
-                                    </div>
-
-                                </div>
+                            <div class="feature-cards__content">
+                                <h3 class="feature-cards__title">Sâu</h3>
+                                <p class="feature-cards__desc">Đào sâu bản chất, phát triển tư duy</p>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                    <li class="feature-cards__item">
+                        <div class="feature-cards__single">
+                            <div class="feature-cards__icon-wrap">
+                                <img src="/frontend/images/icon3.png" alt="">
+                            </div>
+                            <div class="feature-cards__content">
+                                <h3 class="feature-cards__title">Vững</h3>
+                                <p class="feature-cards__desc">Rèn luyện kỹ năng, vận dụng linh hoạt</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="feature-cards__item">
+                        <div class="feature-cards__single">
+                            <div class="feature-cards__icon-wrap">
+                                <img src="/frontend/images/icon4.png" alt="">
+                            </div>
+                            <div class="feature-cards__content">
+                                <h3 class="feature-cards__title">Yêu</h3>
+                                <p class="feature-cards__desc">Nuôi dưỡng niềm say mê, tinh thần tự học</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
     <!-- Banner Two End -->
     <section class="courses-three">
         <div class="container">
-            <div class="section-title-two text-center sec-title-animation animation-style1">
-                <div class="section-title-two__tagline-box">
-                    <div class="section-title-two__tagline-shape">
-                        <img src="{{ env('AWS_R2_URL') }}/frontend/images/section-title-two-shape-1.png" alt="">
+            <div class="section-title-two section-title-two--with-link sec-title-animation animation-style1">
+                <div class="section-title-two__heading">
+                    <div class="section-title-two__tagline-box">
+                        <span class="section-title-two__tagline">KHÓA HỌC NỔI BẬT</span>
                     </div>
-                    <span class="section-title-two__tagline">Best Selling</span>
+                    <h2 class="section-title-two__title">Các khóa học được yêu thích</h2>
                 </div>
-                <h2 class="section-title-two__title">Khóa học nổi bật
-                </h2>
+                <a href="{{ route('couseList') }}" class="section-view-all">
+                    Xem tất cả khóa học
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
             <div class="row">
                 @foreach ($khoahoc as $key => $item)
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                    <div class="courses-two__single">
-                        <div class="courses-two__img-box">
-                            <div class="courses-two__img">
-                                <a href="{{route('couseDetail',['slug'=>$item->slug])}}">
-                                    <img src="{{$item->images}}"
-                                        alt="{{$item->images}}">
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <article class="course-card">
+                            <div class="course-card__media">
+                                <a href="{{ route('couseDetail', ['slug' => $item->slug]) }}">
+                                    <img src="{{ $item->images }}" alt="{{ $item->name }}">
                                 </a>
+                                <span class="course-card__badge">
+                                    {{ languageName($item->cate->name) ?? languageName($item->typecate)->name ?? 'Khóa học' }}
+                                </span>
                             </div>
-                            {{-- <div class="courses-two__heart">
-                                <a href=""><span
-                                        class="icon-heart"></span></a>
-                            </div> --}}
-                        </div>
-                        <div class="courses-two__content">
-                            <div class="courses-two__doller-and-review">
-                                <div class="courses-two__doller">
-                                    @if ($item->price > 0)
-                                        <p>{{number_format($item->price)}}đ <del>{{number_format($item->discount)}}đ</del></p> 
-                                    @else 
-                                        <p>Miễn phí</p> 
-                                    @endif
-                                    
+                            <div class="course-card__body">
+                                <h3 class="course-card__title">
+                                    <a href="{{ route('couseDetail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                </h3>
+                                @php
+                                    $courseReviews = json_decode($item->hang_muc ?? '[]', true);
+                                    if (!is_array($courseReviews)) {
+                                        $courseReviews = [];
+                                    }
+                                    $courseReviewCount = 0;
+                                    $courseReviewTotal = 0;
+                                    foreach ($courseReviews as $courseReview) {
+                                        $reviewStar = isset($courseReview['star']) ? (float) $courseReview['star'] : 0;
+                                        $hasReviewContent = !empty($courseReview['name']) || !empty($courseReview['content']);
+                                        if ($reviewStar > 0 && $hasReviewContent) {
+                                            $courseReviewCount++;
+                                            $courseReviewTotal += $reviewStar;
+                                        }
+                                    }
+                                    $courseReviewAverage = $courseReviewCount > 0
+                                        ? number_format($courseReviewTotal / $courseReviewCount, 1)
+                                        : null;
+                                @endphp
+                                @if ($courseReviewCount > 0)
+                                <div class="course-card__rating">
+                                    <span class="icon-star"></span>
+                                    <strong>{{ $courseReviewAverage }}</strong>
+                                    <span class="course-card__reviews">({{ $courseReviewCount }} đánh giá)</span>
                                 </div>
-                            </div>
-                            <h3 class="courses-two__title">
-                                <a href="{{route('couseDetail',['slug'=>$item->slug])}}">{{$item->name}}</a>
-                            </h3>
-                            <div class="courses-two__btn-and-client-box">
-                                <div class="courses-two__btn-box">
-                                    <a href="{{route('couseDetail',['slug'=>$item->slug])}}" class="thm-btn-two">
-                                        <span>Xem chi tiết</span>
-                                        <i class="icon-angles-right"></i>
-                                    </a>
-                                </div>
-                                <div class="courses-two__client-box">
-                                    <div class="courses-two__client-img">
-                                        @if ($item->user_id == 0)
-                                            <img src="{{url('frontend/images/user_icon.png')}}" alt="">
-                                        @else 
-                                             <img src="{{$item->customer->avatar ? url('uploads/images/'.$item->customer->avatar) : url('frontend/images/user_icon.png')}}" alt="">
+                                @endif
+                                <p class="course-card__desc">
+                                    {{ \Illuminate\Support\Str::limit(trim(strip_tags($item->description ?? '')), 90) }}
+                                </p>
+                                <div class="course-card__divider"></div>
+                                <ul class="course-card__meta list-unstyled">
+                                    <li>
+                                        <span class="icon-clock"></span>
+                                        <span>{{ $item->thickness ?: 0 }} buổi học</span>
+                                    </li>
+                                    <li>
+                                        <span class="icon-location"></span>
+                                        <span>Online hoặc offline</span>
+                                    </li>
+                                </ul>
+                                <div class="course-card__footer">
+                                    <div class="course-card__price">
+                                        @if ($item->price > 0)
+                                            <strong>{{ number_format($item->price, 0, ',', '.') }}đ</strong>
+                                            @if (($item->discount ?? 0) > $item->price)
+                                                <del>{{ number_format($item->discount, 0, ',', '.') }}đ</del>
+                                            @endif
+                                        @else
+                                            <strong>Miễn phí</strong>
                                         @endif
                                     </div>
-                                    <div class="courses-two__client-content">
-                                        <h4>{{$item->user_id == 0 ? 'Quản trị viên' : $item->customer->name}}</h4>
-                                        <p>Giáo viên</p>
-                                    </div>
+                                    <a href="{{ route('couseDetail', ['slug' => $item->slug]) }}" class="course-card__btn">Đăng ký</a>
                                 </div>
                             </div>
-                            <ul class="courses-two__meta list-unstyled">
-                                
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-book"></span>
-                                    </div>
-                                    <p>{{$item->ingredient}} Bài học</p>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-clock"></span>
-                                    </div>
-                                    <p>{{$item->thickness}} Buổi học</p>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-book"></span>
-                                    </div>
-                                    <p>Bài tập online</p>
-                                </li>
-                            </ul>
-                        </div>
+                        </article>
                     </div>
-                </div>
                 @endforeach
                 
             </div>
@@ -220,129 +962,64 @@
         </div>
     </section>
 
-    <!--About Two Start -->
-    <section class="blog-two">
-        <div class="container">
-            <div class="section-title-two text-center sec-title-animation animation-style1">
-                <div class="section-title-two__tagline-box">
-                    <div class="section-title-two__tagline-shape">
-                        <img src="{{ env('AWS_R2_URL') }}/frontend/images/section-title-two-shape-1.png" alt="">
-                    </div>
-                    <span class="section-title-two__tagline">Feedback</span>
-                </div>
-                <h2 class="section-title-two__title title-animation">
-                    Bảng Vàng Thành Tích Tại Cánh Én
-                </h2>
-            </div>
-            <div class="row">
-                <!-- Blog Two Single Start -->
-                @foreach ($thanhtich as $item)
-                    <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="100ms">
-                        <div class="event-one__single">
-                            <a href="{{ $item->image }}" class="img-popup">
-                                <div class="event-one__img">
-                                    <img src="{{ $item->avatar }}" alt="{{ $item->avatar }}">
-                                </div>
-                                <div class="event-one__content">
-                                    <h4 class="event-one__title">
-                                        {{ $item->name }}
-                                    </h4>
-                                    <div class="event-one__location">
-                                        <div class="event-one__location-icon">
-                                            <span class="icon-location"></span>
-                                        </div>
-                                        <p class="event-one__loation-text">{{ $item->link }}</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-                <div class="col-12 text-center">
-                    <a href="{{ route('diemReview') }}" class="viewmore-form__btn">Xem Thêm</a>
-                </div>
-                <!-- Blog Two Single End -->
-            </div>
-        </div>
-    </section>
-   
+
      <!--Team Two Start -->
-     <section class="team-two">
-        <div class="team-two__shape-1 float-bob-y">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/team-two-shape-1.png" alt="">
-        </div>
-        <div class="team-two__shape-2 float-bob-x">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/team-two-shape-2.png" alt="">
-        </div>
+     <section class="team-two team-two--modern">
         <div class="container">
-            <div class="section-title-two text-left sec-title-animation animation-style2">
-                <div class="section-title-two__tagline-box">
-                    <div class="section-title-two__tagline-shape">
-                        <img src="{{ env('AWS_R2_URL') }}/frontend/images/section-title-two-shape-2.png" alt="">
+            <div class="section-title-two section-title-two--with-link sec-title-animation animation-style1">
+                <div class="section-title-two__heading">
+                    <div class="section-title-two__tagline-box">
+                        <span class="section-title-two__tagline">Đội ngũ giáo viên</span>
                     </div>
-                    <span class="section-title-two__tagline">Our Team</span>
+                    <h2 class="section-title-two__title">Giáo viên giàu kinh nghiệm, <br> tận tâm và chuyên môn cao</h2>
                 </div>
-                <h2 class="section-title-two__title title-animation">Đội ngũ giáo viên tại Cánh Én
-                </h2>
+                <a href="{{ route('listTeacher') }}" class="section-view-all">
+                    Xem tất cả
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
-            <div class="team-two__carousel owl-theme owl-carousel">
-                @foreach ($founder as $item)
-                    @php
-                        $mota = json_decode($item->description);
-                    @endphp
-                    <!--Team Two Single Start-->
-                    <div class="item">
-                        <div class="team-one__single">
-                            <div class="team-one__img-box">
-                                <a href="{{ route('detailTeacher', ['slug' => $item->slug]) }}">
-                                    <div class="team-one__img">
-                                        <img src="{{ $item->images }}" alt="Team Member 1">
+            <div class="team-two__carousel-wrap">
+                <div class="team-two__carousel owl-theme owl-carousel">
+                    @foreach ($founder as $teacher)
+                        @php
+                            $teacherMeta = json_decode($teacher->description) ?? [];
+                            $teacherSubject = $teacherMeta[0]->title ?? 'Giáo viên tại Cánh Én';
+                            $teacherExperience = $teacherMeta[1]->title ?? null;
+                            $teacherSchool = $teacherMeta[2]->title ?? null;
+                        @endphp
+                        <div class="item">
+                            <article class="teacher-card">
+                                <div class="teacher-card__media">
+                                    <a href="{{ route('detailTeacher', ['slug' => $teacher->slug]) }}">
+                                        <img src="{{ $teacher->images }}" alt="{{ $teacher->name }}">
+                                    </a>
+                                </div>
+                                <div class="teacher-card__body">
+                                    <h3 class="teacher-card__name">
+                                        <a href="{{ route('detailTeacher', ['slug' => $teacher->slug]) }}">{{ $teacher->name }}</a>
+                                    </h3>
+                                    <p class="teacher-card__line">{{ $teacherSubject }}</p>
+                                    @if ($teacherExperience)
+                                        <p class="teacher-card__line">{{ $teacherExperience }}</p>
+                                    @endif
+                                    @if ($teacherSchool)
+                                        <p class="teacher-card__line">{{ $teacherSchool }}</p>
+                                    @endif
+                                    <div class="teacher-card__social">
+                                        <a href="{{ route('detailTeacher', ['slug' => $teacher->slug]) }}" title="Facebook" aria-label="Facebook">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="{{ route('detailTeacher', ['slug' => $teacher->slug]) }}" title="LinkedIn" aria-label="LinkedIn">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="{{ route('lienHe') }}" title="Liên hệ" aria-label="Liên hệ">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
                                     </div>
-                                    <div class="team-one__content">
-                                        <div class="team-one__single-bg-shape"
-                                            style="background-image: url({{ env('AWS_R2_URL') }}/frontend/images/team-one-single-bg-shape.png);">
-                                        </div>
-                                        <div class="team-one__content-shape-1">
-                                            <img src="{{ env('AWS_R2_URL') }}/frontend/images/team-one-content-shape-1.png" alt="">
-                                        </div>
-                                        <div class="team-one__content-shape-2">
-                                            <img src="{{ env('AWS_R2_URL') }}/frontend/images/team-one-content-shape-2.png" alt="">
-                                        </div>
-                                        <h3 class="team-one__title"><a
-                                                href="{{ route('detailTeacher', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
-                                        </h3>
-                                        <ul class="listiteme">
-                                            @foreach ($mota as $key => $item)
-                                                @if ($key < 3)
-                                                    <li>
-                                                        <span>
-                                                            <svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path fill="currentColor"
-                                                                    d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z">
-                                                                </path>
-                                                            </svg>
-                                                        </span>
-                                                        <span>{{ $item->title }}</span>
-                                                    </li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </a>
-
-                            </div>
+                                </div>
+                            </article>
                         </div>
-                    </div>
-                    <!--Team Two Single End-->
-                @endforeach
-
-
-            </div>
-            <div class="row" style="margin-top: 20px;">
-                <div class="col-12 text-center">
-                    <a href="{{ route('listTeacher') }}" class="viewmore-form__btn"
-                        style="    background: #eeeeee;color: #970a17;">Xem Thêm</a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -465,218 +1142,98 @@
     <!-- Counter Two Start -->
 
     <!-- Courses Three End -->
-    <section class="feature-cards">
+  
+
+
+    <!-- Testimonial Two Start -->
+    
+    <!-- Testimonial Two End -->
+    <section class="home-stats">
         <div class="container">
-            <div class="feature-cards__wrap">
-                <ul class="list-unstyled feature-cards__list">
-                    <li>
-                        <div class="feature-cards__single">
-                            <div class="feature-cards__icon-wrap">
-                                <div class="feature-cards__icon">
-                                    <span class="icon-screen-share"></span>
-                                </div>
-                            </div>
-                            <p class="feature-cards__text">100% giáo viên chất lượng</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="feature-cards__single">
-                            <div class="feature-cards__icon-wrap">
-                                <div class="feature-cards__icon">
-                                    <span class="icon-user-plus"></span>
-                                </div>
-                            </div>
-                            <p class="feature-cards__text">500 học sinh ưu tú</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="feature-cards__single">
-                            <div class="feature-cards__icon-wrap">
-                                <div class="feature-cards__icon">
-                                    <span class="icon-stamp"></span>
-                                </div>
-                            </div>
-                            <p class="feature-cards__text">100 giải thưởng</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="feature-cards__single">
-                            <div class="feature-cards__icon-wrap">
-                                <div class="feature-cards__icon">
-                                    <span class="icon-book"></span>
-                                </div>
-                            </div>
-                            <p class="feature-cards__text">50 chương trình học chất lượng</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="home-stats__bar">
+                <div class="home-stats__item">
+                    <span class="home-stats__icon" aria-hidden="true">
+                        <i class="icon-graduation-cap"></i>
+                    </span>
+                    <div class="home-stats__content">
+                        <p class="home-stats__number">2.000+</p>
+                        <p class="home-stats__label">Học sinh đã đồng hành</p>
+                    </div>
+                </div>
+                <div class="home-stats__item">
+                    <span class="home-stats__icon" aria-hidden="true">
+                        <i class="fas fa-users"></i>
+                    </span>
+                    <div class="home-stats__content">
+                        <p class="home-stats__number">120+</p>
+                        <p class="home-stats__label">Giáo viên chất lượng</p>
+                    </div>
+                </div>
+                <div class="home-stats__item">
+                    <span class="home-stats__icon" aria-hidden="true">
+                        <i class="fas fa-trophy"></i>
+                    </span>
+                    <div class="home-stats__content">
+                        <p class="home-stats__number">500+</p>
+                        <p class="home-stats__label">Giải thưởng đạt được</p>
+                    </div>
+                </div>
+                <div class="home-stats__item">
+                    <span class="home-stats__icon" aria-hidden="true">
+                        <i class="fas fa-book-open"></i>
+                    </span>
+                    <div class="home-stats__content">
+                        <p class="home-stats__number">50+</p>
+                        <p class="home-stats__label">Chương trình học chất lượng</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <style>
-        .feature-cards {
-            margin: 36px 0 50px;
-        }
-
-        .feature-cards .feature-cards__wrap {
-            padding: 0;
-        }
-
-        .feature-cards .feature-cards__list {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 20px;
-            width: 100%;
-            padding-top: 36px;
-        }
-
-        .feature-cards .feature-cards__list li {
-            margin: 0;
-        }
-
-        .feature-cards .feature-cards__single {
-            position: relative;
-            min-height: 150px;
-            background: linear-gradient(180deg, #ffd45f 0%, #f4bc2f 100%);
-            padding: 76px 18px 20px;
-            text-align: center;
-            border-radius: 14px;
-            border: 1px solid #e8ae1b;
-            box-shadow: 0 8px 18px rgba(244, 188, 47, 0.28);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .feature-cards .feature-cards__single:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 28px rgba(244, 188, 47, 0.4);
-        }
-
-    
-
-        .feature-cards .feature-cards__icon-wrap {
-            position: absolute;
-            top: -34px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 102px;
-            height: 102px;
-            background: #fff;
-            border: 1px solid #ececec;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
-            z-index: 3;
-        }
-
-        .feature-cards .feature-cards__icon {
-            width: 82px;
-            height: 82px;
-            border: 2px solid #f3c142;
-            border-radius: 50%;
-            color: #efb112;
-            font-size: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.25s ease;
-        }
-
-        .feature-cards .feature-cards__single:hover .feature-cards__icon {
-            transform: scale(1.06);
-        }
-
-        .feature-cards .feature-cards__icon span {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .feature-cards .feature-cards__text {
-            margin: 0;
-            color: #1d1d1d;
-            font-size: 19px;
-            line-height: 1.34;
-            font-weight: 700;
-            letter-spacing: -0.005em;
-        }
-
-        @media (max-width: 1199px) {
-            .feature-cards .feature-cards__list {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .feature-cards .feature-cards__text {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .feature-cards .feature-cards__list {
-                grid-template-columns: 1fr;
-            }
-
-            .feature-cards .feature-cards__text {
-                font-size: 20px;
-            }
-        }
-    </style>
-
-    <!-- Testimonial Two Start -->
     <section class="testimonial-two">
-        <div class="testimonial-two__shape-1">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-1.png" alt="">
-            <div class="testimonial-two__shape-icon-1">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-icon-1.png" alt=""
-                    class="zoom-fade">
-            </div>
-            <div class="testimonial-two__shape-img-2">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-img-2.jpg" alt="">
-            </div>
-            <div class="testimonial-two__shape-img-3 img-bounce">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-img-3.jpg" alt="">
-            </div>
-        </div>
-        <div class="testimonial-two__shape-2">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-2.png" alt="">
-            <div class="testimonial-two__shape-icon-2 float-bob-y">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/why-choose-two-icon-1.png" alt="">
-            </div>
-            <div class="testimonial-two__shape-img-1 zoom-fade">
-                <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-img-1.jpg" alt="">
-            </div>
-        </div>
-        <div class="testimonial-two__shape-3 float-bob-x">
-            <img src="{{ env('AWS_R2_URL') }}/frontend/images/testimonial-two-shape-3.png" alt="">
-        </div>
-        <div class="testimonial-two__shape-4"></div>
-        <div class="testimonial-two__shape-5"></div>
         <div class="container">
-            <div class="section-title-two text-center sec-title-animation animation-style1">
-                <h2 class="section-title-two__title title-animation">
-                    Tình yêu của học viên với Cánh Én
-                </h2>
+            <div class="section-title-two section-title-two--with-link sec-title-animation animation-style1">
+                <div class="section-title-two__heading">
+                    <div class="section-title-two__tagline-box">
+                        <span class="section-title-two__tagline">Phụ huynh và học sinh nói gì về cánh én</span>
+                    </div>
+                    <h2 class="section-title-two__title">Những phản hồi chân thực</h2>
+                </div>
+                <a href="{{ route('diemReview') }}" class="section-view-all">
+                    Xem tất cả
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
             <div class="testimonial-two__inner">
                 <div class="testimonial-two__slider">
                     <div class="testimonial-two__main-content">
                         <div class="testimonial-two__carousel owl-carousel owl-theme">
-                            <!-- Testimonial Item 1 -->
                             @foreach ($reviewcus as $item)
-                                <div class="video-one__inner">
-                                    <div class="video-one__img-box">
-                                        <img src="{{ $item->avatar }}" alt="">
-                                        <div class="video-one__video-link">
-                                            <a href="{{ $item->content }}" class="video-popup">
-                                                <div class="video-one__video-icon">
-                                                    <span class="fa fa-play"></span>
-                                                    <i class="ripple"></i>
-                                                </div>
-                                            </a>
+                                <div class="testimonial-two__item">
+                                    <article class="testimonial-two__card">
+                                        <div class="testimonial-two__quote-icon">
+                                            <i class="fas fa-quote-left" aria-hidden="true"></i>
                                         </div>
-                                    </div>
+                                        <p class="testimonial-two__card-text">
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($item->content ?? ''), 160) }}
+                                        </p>
+                                        <div class="testimonial-two__card-footer">
+                                            <div class="testimonial-two__person">
+                                                <div class="testimonial-two__avatar">
+                                                    <img src="{{ $item->avatar }}" alt="{{ $item->name ?? 'Học viên' }}">
+                                                </div>
+                                                <div class="testimonial-two__meta">
+                                                    <h4 class="testimonial-two__name">{{ $item->name ?? 'Học viên Cánh Én' }}</h4>
+                                                    <p class="testimonial-two__role">{{ $item->class_name ?? 'Phụ huynh học sinh lớp 5' }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-two__stars" aria-label="{{ (int) ($item->star ?? 5) }} sao">
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
                             @endforeach
                         </div>
@@ -687,7 +1244,7 @@
                                 <div class="testimonial-two__thumb-item">
                                     <div class="testimonial-two__img-holder-box">
                                         <div class="testimonial-two__img-holder">
-                                            <img src="{{ $item->avatar }}" alt="">
+                                            <img src="{{ $item->avatar }}" alt="{{ $item->name ?? 'Học viên' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -696,15 +1253,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <a href="{{ route('diemReview') }}" class="viewmore-form__btn">Xem Thêm</a>
-                </div>
-            </div>
         </div>
     </section>
-    <!-- Testimonial Two End -->
-
     <!-- Blog Two Start -->
     <section class="blog-two">
         <div class="container">

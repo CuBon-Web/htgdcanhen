@@ -54,7 +54,7 @@ Danh sách game
                                     <li class="admin">
                                         <a href="{{route('gamelistAITrieuPhuToanHoc')}}"><img width="35" src="{{$setting->logo}}" alt="admin-1"></a>
                                         <span>By</span>
-                                        <a href="{{route('gamelistAITrieuPhuToanHoc')}}">Edu Alpha</a>
+                                        <a href="{{route('gamelistAITrieuPhuToanHoc')}}">Cánh Én</a>
                                     </li>
                                     <li>
                                         <a href="{{route('gamelistAITrieuPhuToanHoc')}}" class="read-more">
