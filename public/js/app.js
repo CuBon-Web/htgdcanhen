@@ -13353,7 +13353,7 @@ function _initScrollbar(className) {
         name: "Review & Đánh giá",
         route_name: "",
         sub: [{
-          name: "Video",
+          name: "Feedback khách hàng",
           path: "/reviewCus"
         }, {
           name: "Thành tích",
